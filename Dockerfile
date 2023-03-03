@@ -1,7 +1,10 @@
-FROM mysql:latest
+FROM jenkins/jenkins:lts
 
-ENV MYSQL_ROOT_PASSWORD=root
+USER root
 
-ENV MYSQL_DATABASE=entreprise
+RUN apt update
 
-COPY init.sql /docker-entrypoint-initdb.d/
+RUN apt install -y python
+
+RUN apt install -y pip
+
